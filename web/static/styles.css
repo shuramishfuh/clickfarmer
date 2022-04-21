@@ -2,14 +2,14 @@ h1, h2 {
     text-align: center;
 }
 
-.BoldIt{
+.BoldIt {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;;
 }
 
-.spaceIt{
-    margin-bottom:23px;
+.spaceIt {
+    margin-bottom: 23px;
     padding-bottom: 200px;
 }
 
@@ -17,32 +17,73 @@ h1, h2 {
     cursor: cell;
 }
 
+.color-label {
+    text-align: center;
+    color: white;
+    margin: auto;
+}
+
 ul {
     list-style-type: none;
 }
+
 ul li {
     display: inline;
 }
 
 .color-button {
     width: inherit;
-    height:inherit ;
+    height: inherit;
     /*cursor: pointer;*/
     margin: 30px auto;
     padding: 30px;
     border: 2px solid black;
     color: white;
 }
+
 .color-button-red {
-    background-color: red;
+    background-image: linear-gradient(to right, red, #F03595, red);
+
 }
+
 .color-button-green {
-    background-color: green;
+    background-image: linear-gradient(to right, #4EF5A8, #13505B, #119DA4);
+
 }
+
 .color-button-blue {
-    background-color: blue;
+    background-image: linear-gradient(to right, #3F84E5, #57DCFF, #353CFC);
+}
+
+.animate-charcter {
+    text-transform: uppercase;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 20% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 39px;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
 }
 
 
-
-
+.center {
+    text-align: center;
+}

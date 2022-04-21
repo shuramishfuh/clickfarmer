@@ -11,17 +11,20 @@
 </head>
 
 <body>
+
 <div class="container-fluid">
 
 
-    <div class=" mt-3">
+    <div class=" mt-2">
         <div class="mt-4 p-5 bg-secondary text-white rounded">
             <h1>Click farming node: {{ .Name }}</h1>
-            <h2>Lets get farming </h2>
+            <div class="center">
+                <h2 class="animate-charcter">Lets get farming </h2>
+            </div>
         </div>
     </div>
 
-    <div class="pb-5"></div>
+    <div class="pb-2"></div>
 
 
     <div class="row ">
@@ -36,7 +39,8 @@
                         <div class="card-body ">
                             <div class=" color-button-{{ $color }} cell">
                                 <div class=" color-label  "
-                                     onclick="colorClicked('{{ $color  }}')">Farm here
+                                     onclick="colorClicked('{{ $color  }}')">DIG IN
+                                    <div class="p-3"></div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +49,7 @@
                             <button class="btn btn-Light BoldIt " id="color-label-{{ $color }}" disabled>current {{ $color }} count is: 0</button>
                         </div>
                     </div>
-                    <div class="pb-4"></div>
+                    <div class="pb-2"></div>
                 </div>
 
 
