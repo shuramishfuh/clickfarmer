@@ -1,22 +1,48 @@
+// global Var
+let  colors=[]
+
+
+
 window.addEventListener('load', function () {
     updateClickLabels();
 })
 
+setInterval(updateClickLabels, 2000);
+
 function colorClicked(color) {
     console.log("color clicked", color);
-    // hmm
+    sendData(color)
+    updateClickLabels()
+
 }
 
 function updateClickLabels() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-            document.getElementById("color-label-red").innerHTML = "red: " + response.redClicks
-            document.getElementById("color-label-green").innerHTML = "red: " + response.greenClicks
-            document.getElementById("color-label-blue").innerHTML = "red: " + response.blueClicks
+            let response = JSON.parse(this.responseText);
+            document.getElementById("color-label-red").innerHTML ="current count:" + response.redClicks
+            document.getElementById("color-label-green").innerHTML = "current count: " + response.greenClicks
+            document.getElementById("color-label-blue").innerHTML = "current count: " + response.blueClicks
+            console.log('success!', xhttp)
         }
     };
     xhttp.open("GET", "/api/clicks", true);
     xhttp.send();
+
+
 }
+
+
+function sendData(color) {
+    let xhr = new XMLHttpRequest();
+    let url = "/api/clicks/" + color
+    xhr.open("PUT", url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = () => console.log(xhr.responseText);
+    let data = color;
+    xhr.send(data);
+}
+
+
