@@ -87,18 +87,20 @@ func (a *APIServer) refreshCache(ctx context.Context) error {
 			Blue:  a.cache.values.Blue,
 		},
 	})
+	fmt.Println(a.cache.values)
 	if err != nil {
 		return err
 	}
 
-	getRes, err := a.clickFarmer.GetClicks(ctx, &pb.GetClicksRequest{})
-	if err != nil {
-		return err
-	}
-	a.cache.values.Red = getRes.ClickCounts.Red
-	a.cache.values.Green = getRes.ClickCounts.Green
-	a.cache.values.Blue = getRes.ClickCounts.Blue
+	// reset should be after an interval not immediately updated
 
+	//getRes, err := a.clickFarmer.GetClicks(ctx, &pb.GetClicksRequest{})
+	//if err != nil {
+	//	return err
+	//}
+	//a.cache.values.Red = getRes.ClickCounts.Red
+	//a.cache.values.Green = getRes.ClickCounts.Green
+	//a.cache.values.Blue = getRes.ClickCounts.Blue
 	return nil
 }
 
